@@ -139,6 +139,12 @@ export default function Chat() {
       sendMessage()
     }
   }
+ 
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setInput(e.target.value)
+    e.target.style.height = 'auto'
+    e.target.style.height = e.target.scrollHeight + 'px'
+}
 
   return (
     <div className="flex flex-col h-screen bg-gray-50">
@@ -186,14 +192,13 @@ export default function Chat() {
         <div className="flex items-end space-x-2 max-w-4xl mx-auto">
           <textarea
             value={input}
-            onChange={(e) => setInput(e.target.value)}
+            onChange={handleInputChange}
             onKeyDown={handleKeyPress}
             placeholder="Type your message..."
-            className="flex-1 resize-none rounded-2xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+            className="flex-1 resize-none rounded-2xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base text-gray-800 placeholder-gray-400 max-h-40 overflow-y-auto"
             rows={1}
-            disabled={isLoading || isRecording}
-          />
-          
+            disabled={isLoading}
+           />          
 
           {/* Send button */}
           <button
