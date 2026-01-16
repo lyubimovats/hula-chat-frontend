@@ -180,12 +180,6 @@ export default function Chat() {
         <div ref={messagesEndRef} />
       </div>
 
-      {/* Recording Indicator */}
-      {isRecording && (
-        <div className="bg-red-500 text-white px-4 py-2 text-center text-sm font-medium">
-          🎤 Recording... Click Stop when finished
-        </div>
-      )}
 
       {/* Input Area */}
       <div className="bg-white border-t border-gray-200 px-4 py-3 sticky bottom-0">
@@ -200,29 +194,6 @@ export default function Chat() {
             disabled={isLoading || isRecording}
           />
           
-          {/* Microphone / Stop button */}
-          {!isRecording ? (
-            <button
-              onClick={startRecording}
-              disabled={isLoading}
-              className="bg-gray-100 text-gray-700 rounded-full p-3 hover:bg-gray-200 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
-              title="Record voice message"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-              </svg>
-            </button>
-          ) : (
-            <button
-              onClick={stopRecording}
-              className="bg-red-500 text-white rounded-full p-3 hover:bg-red-600 transition-colors animate-pulse"
-              title="Stop recording"
-            >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <rect x="6" y="6" width="12" height="12" rx="1" />
-              </svg>
-            </button>
-          )}
 
           {/* Send button */}
           <button
