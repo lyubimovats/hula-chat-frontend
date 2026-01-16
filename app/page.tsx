@@ -16,7 +16,10 @@ export default function Chat() {
   ])
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [sessionId, setSessionId] = useState<string>('')
+const [sessionId, setSessionId] = useState<string>(() => {
+  // Generate unique session ID on component mount
+  return Math.random().toString(36).substring(2, 10)
+})
   const [isRecording, setIsRecording] = useState(false)
   const [mediaRecorder, setMediaRecorder] = useState<MediaRecorder | null>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
@@ -50,9 +53,6 @@ export default function Chat() {
 
       const data = await response.json()
       
-      if (!sessionId) {
-        setSessionId(data.session_id)
-      }
 
       const assistantMessage: Message = {
         role: 'assistant',
