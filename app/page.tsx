@@ -11,7 +11,7 @@ export default function Chat() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-content: 'Hi! 👋\n\nThanks for following Hula on Instagram!\n\nWe\'re doing a quick survey (5 min) to understand how you use the app and what we can improve. Would you mind answering a few questions about your experience?'    }
+content: 'Hi! 👋\n\nI\'m Hula\'s AI researcher gathering feedback from users.\n\nWould you be willing to share your thoughts about the app? Just 5 minutes!'
   ])
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
