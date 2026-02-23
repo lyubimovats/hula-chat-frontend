@@ -12,6 +12,7 @@ export default function Chat() {
     {
       role: 'assistant',
 content: 'Hi! 👋\n\nI\'m Hula\'s AI researcher gathering feedback from users.\n\nWould you be willing to share your thoughts about the app? Just 5 minutes!'
+    }
   ])
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
